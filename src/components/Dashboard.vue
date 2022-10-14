@@ -34,7 +34,7 @@
 </template>
 
 <script>
-
+    
     export default{
         name: 'Dashboard', 
         data(){
@@ -60,13 +60,17 @@
               this.status = data
             },
             async confirmDeleteBurger(id){
+              
               this.$swal({
-                title: `Confirma que o pedido Nº ${id} deve ser excluído?`,
-                showDenyButton: true,
-                confirmButtonText: 'Excluir',
-                denyButtonText: `Cancelar exclusão`,
+                title: `Você confirma a exclusão do pedido Nº ${id}?`,
+                text: 'Caso você exclua esse pedido não será mais possível recuperá-lo',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Excluir'
               }).then((result) => {
-                if(result.isConfirmed) {
+                if (result.isConfirmed) {
                   this.deleteBurger(id)
                 }
               })

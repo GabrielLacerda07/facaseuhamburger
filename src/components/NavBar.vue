@@ -37,11 +37,22 @@
     #nav a{
         color: #FCBA03;
         text-decoration: none;
-        margin: 12px;
+        margin: 15px;
         transition: .5s;
     }
     #nav a:hover{
         color: #fff;
+    }
+    /*Responividade*/
+    @media (max-width: 768px){
+        
+    }
+    @media (max-width: 480px){
+        #nav{
+            padding: 15px;
+            display: flex;
+            justify-content: flex-start;
+        }
     }
 
 </style>

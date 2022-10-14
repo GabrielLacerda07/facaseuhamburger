@@ -80,38 +80,27 @@
   "burgers": [
     {
       "nome": "Ana",
-      "carne": "Maminha",
-      "pao": "Italiano Branco",
+      "carne": "Veggie burger",
+      "pao": "Integral",
       "opcionais": [
         "Tomate",
-        "Cebola roxa",
-        "Cheddar"
+        "Pepino",
+        "Cebola roxa"
       ],
-      "status": "Em produção",
+      "status": "Solicitado",
       "id": 1
     },
     {
       "nome": "Gabriel",
       "carne": "Picanha",
-      "pao": "Italiano Branco",
+      "pao": "Parmesão e Orégano",
       "opcionais": [
+        "Cheddar",
         "Bacon",
-        "Cebola roxa",
-        "Cheddar"
+        "Cebola roxa"
       ],
       "status": "Solicitado",
       "id": 2
-    },
-    {
-      "nome": "Jackson",
-      "carne": "Picanha",
-      "pao": "Italiano Branco",
-      "opcionais": [
-        "Salame",
-        "Bacon"
-      ],
-      "status": "Solicitado",
-      "id": 3
     }
   ]
 }

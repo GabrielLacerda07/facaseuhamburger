@@ -1,10 +1,11 @@
 <template>
     <div>
         <div>
-            <form id="burger-form" @submit="createBurger">
+            <form id="burger-form" @submit="validaNome">
                 <div class="input-container">
                     <label for="nome">Nome do cliente</label>
-                    <input type="text" id="nome" name="nome" v-model="nome" placeholder="Digite o seu nome">
+                    <input  type="text" id="nome" name="nome" v-model="nome" placeholder="Digite o seu nome">
+                    <small id="erro-message">Este campo é obrigatório!</small>
                 </div>
                 <div class="input-container">
                     <label for="pao">Escolha o pão:</label>
@@ -29,7 +30,7 @@
                     </div>
                 </div>
                 <div class="input-container">
-                    <input type="submit" class="submit-btn" value="Criar meu burgers">
+                    <input type="submit" class="submit-btn" value="Criar meu burguer">
                 </div>
             </form>
         </div>
@@ -62,7 +63,6 @@
             this.opcionaisdata = data.opcionais;
         },
         async createBurger(e) {
-            e.preventDefault();
             const data = {
                 nome: this.nome,
                 carne: this.carne,
@@ -93,8 +93,20 @@
             this.pao = "";
             this.carne = "";
             this.opcionais = [];
-            /*
-            */
+            
+        }, 
+        async validaNome(e){
+            e.preventDefault()
+            const inputNome = document.querySelector('#nome')
+            const msgErro = document.querySelector('#erro-message')
+            if(inputNome.value === ''){
+                inputNome.classList.add('input-nome-erro')
+                msgErro.classList.add('msg-erro')
+            }else{
+                inputNome.classList.remove('input-nome-erro')
+                msgErro.classList.remove('msg-erro')
+                this.createBurger()
+            }
         }
     },
     mounted() {
@@ -123,8 +135,18 @@
         border-left: 4px solid #fcba03;
     }
     input, select{
+        font-size: 17px;
         padding: 5px 10px;
         width: 100%;
+        border: 2px solid rgb(145, 145, 145);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-end-end-radius: 5px;
+        border-end-start-radius: 5px;
+
+    }
+    small{
+        visibility: hidden;
     }
     #opcionais-container{
         flex-direction: row;
@@ -164,5 +186,14 @@
     .submit-btn:hover{
         background-color: transparent;
         color: #222;
+    }
+    /*Validação do nome*/
+    .input-nome-erro{
+        border: 2px solid rgb(231, 0, 0);
+    }
+    .msg-erro{
+        padding: 6px 0 0 5px;
+        visibility: visible;
+        color: red;
     }
 </style>
